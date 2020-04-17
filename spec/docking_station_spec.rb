@@ -5,20 +5,33 @@ describe DockingStation do
     expect(DockingStation.new).to respond_to(:release_bike)
   end
 
-  it 'Get a bike' do
-    expect((DockingStation.new.release_bike).class).to eq (Bike)
+  it 'Return true to bike.working?' do
+    expect(Bike.new.working?).to eq (true)
   end
 
-  it 'Return true to bike.working?' do
-    expect((DockingStation.new.release_bike).working?).to eq (true)
+  it "return bike to a full docking station" do
+    docking = DockingStation.new
+    docking.dock_bike(Bike.new)
+    #@bikes = [Bike.new]  
+    expect {docking.dock_bike(Bike.new)}.to raise_error("The docking station is full.")
   end
 
   it 'Return bike to docking station' do
     expect(DockingStation.new).to respond_to(:dock_bike)
   end
+  
+  it { is_expected.to respond_to :bikes }
 
-  it "attr_reader" do
-    expect(DockingStation.new).to respond_to(:bikes)
-  end
-  #it { is_expected.to respond_to :bikes }
+  it "Get a bike from empty station" do
+    @bikes = []
+    expect {DockingStation.new.release_bike}.to raise_error("There are no bikes in this docking station.")
+  end 
+
+  it "(release bike) Get Bike from full station" do
+    docking = DockingStation.new
+    bike = Bike.new
+    docking.dock_bike(bike)
+    expect(docking.release_bike).to eq (bike)
+  end 
+
 end
