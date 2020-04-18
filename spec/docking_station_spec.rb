@@ -11,9 +11,10 @@ describe DockingStation do
 
   it "return bike to a full docking station" do
     docking = DockingStation.new
-    docking.dock_bike(Bike.new)
+    20.times {docking.dock_bike(Bike.new)}
     #@bikes = [Bike.new]  
-    expect {docking.dock_bike(Bike.new)}.to raise_error("The docking station is full.")
+    expect{docking.dock_bike(Bike.new)}.to raise_error("The docking station is full.")
+    puts 
   end
 
   it 'Return bike to docking station' do
