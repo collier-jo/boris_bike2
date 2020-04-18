@@ -11,7 +11,7 @@ describe DockingStation do
 
   it "return bike to a full docking station" do
     docking = DockingStation.new
-    DockingStation::DEFAULT_CAPACITY.times {docking.dock_bike(Bike.new)}
+    docking.capacity.times {docking.dock_bike(Bike.new)}
     #@bikes = [Bike.new]  
     expect{docking.dock_bike(Bike.new)}.to raise_error("The docking station is full.")
     puts 
