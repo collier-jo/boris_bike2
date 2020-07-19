@@ -10,11 +10,27 @@ class DockingStation
   end
 
   def release_bike
-    @bikes.pop unless empty?
-  end
+   
+    i = 0
+    @bikes.each do |bike_instance|
+      i += 1
+
+      next if bike_instance.working == false
+      if bike_instance.working == true
+        @bikes.drop(i)
+      end 
+    end 
+    empty?
+    
+    
+  end 
   
+  def report_fault(bike)
+    bike.working = false
+  end 
+
   def dock_bike(bike)
-    @bikes << bike unless full?
+      @bikes << bike unless full?
   end
 
   private
