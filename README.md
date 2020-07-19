@@ -28,6 +28,9 @@ Show what the library does as concisely as possible, developers should be able t
 Provide step by step series of examples and explanations about how to get a development env running.
 
 ## Tests
+
+100% test coverage
+
 <!-- Describe and show how to run the tests with code examples.
 
 How to use?
