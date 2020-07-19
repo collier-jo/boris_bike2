@@ -1,11 +1,10 @@
-## Task
-
 # Boris Bike
 First Makers afternoon challenge! We are to Build a program that will emulate the docking stations, bikes and infrastructure for Boris Bikes.
 
-## Motivation
+## Motivation
 
 Main motivations for this project is:
+- Commit commit commit that git
 - To learn how to Pair in a driver navigator style 
 - Learn to TDD 
 
